@@ -168,7 +168,7 @@ echo "$updated_info" > "$runs_file"
 
 echo "> Convert the runner WPT result to the summary format for the wpt dashboard tool."
 
-WPT_FYI_PATH=$HOME/github/wpt.fyi-feasibility
+WPT_FYI_PATH=../wpt.fyi
 $WPT_FYI_PATH/results-processor/wptreport.py --summary $summary_file_name $1
 gunzip $summary_file_name
 mv ${summary_file_name%.gz} $summary_file_name
