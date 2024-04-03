@@ -81,7 +81,7 @@ runs_file="runs.json"
 products=("chrome" "chrome_android" "firefox" "safari")
 short_wpt_revision="${wpt_revision:0:10}" 
 summary_file_name=huawei_browser-$short_wpt_revision-summary_v2.json.gz
-result_url="https://raw.githubusercontent.com/Gyuyoung/wpt-results-for-dashboard/main/summary-results/$summary_file_name"
+result_url="https://raw.githubusercontent.com/wpt-dashboard/wpt-reports-for-dashboard/main/summary-results/$summary_file_name"
 browser_version="${browser_version%.json}"
 
 echo "  - The result filename: $file_name"
