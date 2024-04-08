@@ -7,17 +7,16 @@ This dashboard displays the WebPageTest (WPT) results of the Huawei browser alon
 
 
 ## 2. Prerequisites
-### 2.1 Run the custom wpt.fyi
-This project forked wpt.fyi to integrate WPT reports of the Huawei browser into the dashboard. To begin, clone the [wpt-dashboard/wpt.fyi](https://github.com/wpt-dashboard/wpt.fyi) repository to your local environment. Next, set up the environment for wpt.fyi by following the [instructions](https://github.com/wpt-dashboard/wpt.fyi) provided here.
+This project forked wpt.fyi dashboard to integrate WPT reports of the Huawei browser into the dashboard. To begin, you need to clone the [wpt-dashboard/wpt.fyi](https://github.com/wpt-dashboard/wpt.fyi) repository to your local environment. Next, set up the environment for wpt.fyi by following the [instructions](https://github.com/wpt-dashboard/wpt.fyi) provided here.
 
-### 2.1 Download the wpt dashboard for the huawei browser.
+### 2.1 Download the forked wpt.fyi dashboard
 This is the command to clone [wpt-dashboard/wpt.fyi](https://github.com/wpt-dashboard/wpt.fyi) repository.
 
 ```sh
 $ git clone git@github.com:wpt-dashboard/wpt.fyi.git
 ```
 
-### 2.2 Setting up your environment for wpt.fyi
+### 2.2 Set up your environment for the wpt.fyi dashboard
 You'll need [Docker](https://www.docker.com/). With Docker installed, start the development container:
 
 ```sh
@@ -32,8 +31,8 @@ If you successfully run the wpt.fyi server locally, you will also need to downlo
 $ git clone git@github.com:wpt-dashboard/wpt-reports-for-dashboard.git
 ```
 
-## 3. How to run the wpt dashboard locally
-As mentioned in [2.2 Setting up your environment for wpt.fyi](https://github.com/wpt-dashboard/wpt-reports-for-dashboard/edit/main/README.md#22-setting-up-your-environment-for-wptfyi), you need to start the Docker instance named `wptd-dev-instance` first.
+## 3. Run the wpt dashboard locally
+As mentioned in [2.2 Set up your environment for wpt.fyi](https://github.com/wpt-dashboard/wpt-reports-for-dashboard/edit/main/README.md#22-setting-up-your-environment-for-wptfyi), you need to start the Docker instance named `wptd-dev-instance` first.
 
 ```sh
 wpt.fyi$ ./util/docker-dev/run.sh
@@ -55,7 +54,7 @@ wpt.fyi$ ./util/docker-dev/dev_data.sh
 
 After finishing populating the app datastore, you can access the dashboard via `https://localhost:8080` on a web browser.
 
-## 4. How to reflect a new WPT report to the dashboard
+## 4. Reflect a new WPT report to the dashboard
 
 ### 4.1 Run WPT on the Huawei browser
 To compare WPT results with those of other browsers, you'll need to identify a specific commit SHA that the wpt.fyi dashboard used for running tests on those browsers, as we fetch results from the wpt.fyi dashboard. Our custom dashboard compares the Huawei browser with versions of Chrome (canary), Chrome Android, Firefox (experimental), and Safari (preview). You can locate the commits of other browsers that ran WPT tests via this [link](https://wpt.fyi/runs?label=master&max-count=100&from=2024-03-28T00%3A00&product=chrome%5Bexperimental%5D&product=firefox%5Bexperimental%5D&product=chrome_android&product=safari%5Bpreview%5D&aligned). Alternatively, you can easily find the commits using `--show-revisions` option in `wpt-reports-for-dashboard/uploadNewResult.sh` script, which will display a list of commits for other browsers' WPT runs on the wpt.fyi server.
@@ -93,7 +92,7 @@ wpt-reports-for-dashboard$ ./uploadNewResult.sh /path/to/result_10de90ddb5300055
 
 ### 4.4 Restart wpt.fyi dashboard
 
-If you have successfully committed the new result to the wpt-reports-dashboard repository, please proceed by restarting the Docker server, the web server, and populating the app's datastore with some initial data.
+If you have successfully committed the new result to the wpt-reports-dashboard repository, please proceed by restarting the Docker server, the web server, and populating the app's datastore with some initial data. Then, you will see the new WPT report on the page.
 
 
 
